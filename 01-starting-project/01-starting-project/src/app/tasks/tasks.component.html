@@ -1,5 +1,5 @@
 @if(isAddingTask){
-  <app-new-task (cancel)="closeModal()"></app-new-task>
+  <app-new-task (cancel)="closeModal()" (add)="onAddTask($event)"></app-new-task>
 }
 
 <section id="tasks">
