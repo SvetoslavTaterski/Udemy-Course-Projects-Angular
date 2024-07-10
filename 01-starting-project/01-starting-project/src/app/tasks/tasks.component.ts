@@ -25,19 +25,11 @@ export class TasksComponent {
     return this.taskService.getUserTasks(this.userId);
   }
 
-  onCompleteTask(id: string) {
-    
-  }
-
   addNewTask() {
     this.isAddingTask = true;
   }
 
   closeModal() {
-    this.isAddingTask = false;
-  }
-
-  onAddTask(taskData: NewTaskData) {
     this.isAddingTask = false;
   }
 }
