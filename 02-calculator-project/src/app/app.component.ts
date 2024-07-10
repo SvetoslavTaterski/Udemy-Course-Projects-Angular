@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
+import { type InvestmentModel } from './investment-input.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  onCalculateInvestmentResults(data: {
-    initialInvestment: number;
-    duration: number;
-    expectedReturn: number;
-    annualInvestment: number;
-  }) {
+  onCalculateInvestmentResults(data: InvestmentModel) {
     const { initialInvestment, duration, expectedReturn, annualInvestment } = data;
     const annualData = [];
     let investmentValue = initialInvestment;
