@@ -18,7 +18,4 @@ export class TaskComponent {
     this.tasksService.removeTask(this.task.id);
   }
 
-
-
-
 }
