@@ -9,7 +9,7 @@ import { ResultData } from '../result-data.model';
 export class InvestmentResultComponent {
   
   //This is like the @Input()
-  //results = input<ResultData>();
+  results = input<ResultData>();
 
-  @Input({required: true}) results? : ResultData;
+  //@Input({required: true}) results? : ResultData;
 }
