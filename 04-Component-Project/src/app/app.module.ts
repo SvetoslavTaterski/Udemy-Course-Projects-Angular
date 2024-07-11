@@ -8,6 +8,7 @@ import { TrafficComponent } from './dashboard/traffic/traffic.component';
 import { SupportTicketsComponent } from './dashboard/tickets/support-tickets/support-tickets.component';
 import { DashboardItemComponent } from './dashboard/dashboard-item/dashboard-item.component';
 import { NewTicketComponent } from './dashboard/tickets/new-ticket/new-ticket.component';
+import { ButtonComponent } from './shared/button/button.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NewTicketComponent } from './dashboard/tickets/new-ticket/new-ticket.co
     TrafficComponent,
     SupportTicketsComponent,
     DashboardItemComponent,
-    NewTicketComponent
+    NewTicketComponent,
+    ButtonComponent
   ],
   imports: [BrowserModule],
   bootstrap: [AppComponent],
