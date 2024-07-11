@@ -1,5 +1,6 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { ResultData } from '../result-data.model';
+import { InvestmentService } from '../investment.service';
 
 @Component({
   selector: 'app-investment-result',
@@ -7,9 +8,9 @@ import { ResultData } from '../result-data.model';
   styleUrl: './investment-result.component.css'
 })
 export class InvestmentResultComponent {
-  
-  //This is like the @Input()
-  results = input<ResultData>();
 
-  //@Input({required: true}) results? : ResultData;
+  constructor(private investmentService: InvestmentService) { 
+  }
+  
+  results = computed(() => this.investmentService.resultData());
 }
