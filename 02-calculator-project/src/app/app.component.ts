@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { type InvestmentModel } from './investment-input.model';
+import { ResultData } from './result-data.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+  resultsData? : ResultData;
+
   onCalculateInvestmentResults(data: InvestmentModel) {
     const { initialInvestment, duration, expectedReturn, annualInvestment } = data;
     const annualData = [];
@@ -27,6 +30,6 @@ export class AppComponent {
       });
     }
 
-    return console.log(annualData);
+    this.resultsData = annualData;
   }
 }
