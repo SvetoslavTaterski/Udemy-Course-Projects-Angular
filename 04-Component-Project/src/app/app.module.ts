@@ -9,6 +9,7 @@ import { SupportTicketsComponent } from './dashboard/tickets/support-tickets/sup
 import { DashboardItemComponent } from './dashboard/dashboard-item/dashboard-item.component';
 import { NewTicketComponent } from './dashboard/tickets/new-ticket/new-ticket.component';
 import { ButtonComponent } from './shared/button/button.component';
+import { ControlComponent } from './shared/control/control.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ButtonComponent } from './shared/button/button.component';
     SupportTicketsComponent,
     DashboardItemComponent,
     NewTicketComponent,
-    ButtonComponent
+    ButtonComponent,
+    ControlComponent
   ],
   imports: [BrowserModule],
   bootstrap: [AppComponent],
