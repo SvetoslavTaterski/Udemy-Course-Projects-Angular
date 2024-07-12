@@ -35,9 +35,10 @@ export class LifecycleComponent
   constructor() {
     console.log('CONSTRUCTOR');
   }
-
+  
   ngOnInit() {
     console.log('ngOnInit');
+    console.log(this.text);
   }
 
   ngOnChanges(changes: SimpleChanges) {
