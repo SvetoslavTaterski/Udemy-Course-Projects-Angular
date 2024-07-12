@@ -10,6 +10,7 @@ import { DashboardItemComponent } from './dashboard/dashboard-item/dashboard-ite
 import { NewTicketComponent } from './dashboard/tickets/new-ticket/new-ticket.component';
 import { ButtonComponent } from './shared/button/button.component';
 import { ControlComponent } from './shared/control/control.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,9 @@ import { ControlComponent } from './shared/control/control.component';
     DashboardItemComponent,
     NewTicketComponent,
     ButtonComponent,
-    ControlComponent
+    ControlComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
