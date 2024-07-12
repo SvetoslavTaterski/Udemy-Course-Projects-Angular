@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-new-ticket',
@@ -6,8 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './new-ticket.component.css',
 })
 export class NewTicketComponent {
-  onSubmit(titleElement: HTMLInputElement) {
-    const eneredTitle = titleElement.value;
-    console.log('Entered Title: ' + eneredTitle);
+  @ViewChild('form') form?: ElementRef<HTMLFormElement>;
+
+  onSubmit(title: string, ticketText: string) {
+    console.log(title);
+    console.log(ticketText);
+
+    this.form?.nativeElement.reset();
   }
 }
