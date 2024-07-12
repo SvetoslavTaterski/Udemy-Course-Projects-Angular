@@ -12,7 +12,10 @@
           <a href="/">Management</a>
         </li>
         <li>
-          <button appButton></button>
+          <button appButton>
+            Logout
+            <ng-content select=".icon">→</ng-content>
+          </button>
         </li>
       </ul>
     </nav>
