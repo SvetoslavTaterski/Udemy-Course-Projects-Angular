@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, viewChild, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-new-ticket',
@@ -6,12 +6,14 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrl: './new-ticket.component.css',
 })
 export class NewTicketComponent {
-  @ViewChild('form') form?: ElementRef<HTMLFormElement>;
+  //@ViewChild('form') private form?: ElementRef<HTMLFormElement>;
+
+  private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
   onSubmit(title: string, ticketText: string) {
     console.log(title);
     console.log(ticketText);
 
-    this.form?.nativeElement.reset();
+    this.form().nativeElement.reset();
   }
 }
