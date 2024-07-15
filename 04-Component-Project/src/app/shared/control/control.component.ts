@@ -1,4 +1,4 @@
-import { Component, input, ViewEncapsulation, inject, ElementRef, ContentChild, contentChild, AfterContentInit } from '@angular/core';
+import { Component, input, ViewEncapsulation, inject, ElementRef, ContentChild, contentChild, AfterContentInit, afterRender, afterNextRender } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -22,6 +22,16 @@ export class ControlComponent implements AfterContentInit{
   // HTMLInputElement | HTMLTextAreaElement>;
   
   private control = contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement >>('input');
+
+  constructor() {
+    afterRender(() => {
+      console.log('After render');
+    });
+
+    afterNextRender(() => {
+      console.log('After next render');
+    });
+  }
   
   ngAfterContentInit(){
     // ...
