@@ -8,6 +8,8 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, vie
 export class NewTicketComponent implements OnInit, AfterViewInit {
   @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
   //@Output() add = new EventEmitter();
+  enteredTitle = '';
+  enteredText = '';
   add = output<{title: string; text: string}>();
 
   //private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
@@ -22,9 +24,10 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
     console.log(this.form?.nativeElement);
   }
 
-  onSubmit(title: string, ticketText: string) {
-    this.add.emit({title: title, text: ticketText });
+  onSubmit() {
+    this.add.emit({title: this.enteredTitle, text: this.enteredText });
 
-    this.form?.nativeElement.reset();
+    this.enteredText = '';
+    this.enteredTitle = '';
   }
 }
