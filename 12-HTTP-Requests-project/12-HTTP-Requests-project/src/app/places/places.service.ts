@@ -24,16 +24,30 @@ export class PlacesService {
     return this.fetchPlaces(
       'http://localhost:3000/user-places',
       'An error occurred!'
-    ).pipe(tap({
-      next: (userPlaces) => this.userPlaces.set(userPlaces),
-    }));
+    ).pipe(
+      tap({
+        next: (userPlaces) => this.userPlaces.set(userPlaces),
+      })
+    );
   }
 
-  addPlaceToUserPlaces(placeId: string) {
+  addPlaceToUserPlaces(place: Place) {
+    const prevPlaces = this.userPlaces();
+
+    if (!prevPlaces.some((p) => p.id === place.id)) {
+      this.userPlaces.update((prevPlaces) => [...prevPlaces, place]);
+    }
+
     return this.httpClient
       .put('http://localhost:3000/user-places', {
-        placeId,
+        placeId: place.id,
       })
+      .pipe(
+        catchError((error) => {
+          this.userPlaces.set(prevPlaces);
+          return throwError(() => new Error('Failed to store selected place.'));
+        })
+      );
   }
 
   removeUserPlace(place: Place) {}
