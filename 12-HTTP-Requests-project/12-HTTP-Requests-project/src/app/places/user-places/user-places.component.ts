@@ -46,4 +46,16 @@ export class UserPlacesComponent implements OnInit {
       subscribtion.unsubscribe();
     });
   }
+
+  onSelectFavoritePlace(selectedPlace: Place) {
+    const subscribtion = this.placesService
+      .removeUserPlace(selectedPlace)
+      .subscribe({
+        next: (responseData) => console.log(responseData),
+      });
+
+    this.destroyRef.onDestroy(() => {
+      subscribtion.unsubscribe();
+    });
+  }
 }
