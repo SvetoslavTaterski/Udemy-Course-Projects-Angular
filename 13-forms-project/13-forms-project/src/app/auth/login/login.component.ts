@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {
+  AbstractControl,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -19,10 +21,10 @@ export class LoginComponent {
       validators: [Validators.required, Validators.email],
     }),
     password: new FormControl('', {
-      validators: [Validators.required, Validators.minLength(6)],
+      validators: [Validators.required, Validators.minLength(6), mustContainQuestionMark],
     }),
   });
-
+  
   get emailIsInvalid() {
     return (
       this.form.controls.email.touched &&
@@ -30,7 +32,7 @@ export class LoginComponent {
       this.form.controls.email.invalid
     );
   }
-
+  
   get passwordIsInvalid() {
     return (
       this.form.controls.password.touched &&
@@ -38,12 +40,20 @@ export class LoginComponent {
       this.form.controls.password.invalid
     );
   }
-
-
+  
+  
   onSubmit() {
     console.log(this.form);
     const enteredEmail = this.form.value.email;
     const enteredPassword = this.form.value.password;
     console.log(enteredEmail, enteredPassword);
   }
+}
+
+function mustContainQuestionMark(control: AbstractControl) {
+  if (control.value.includes('?')) {
+    return null;
+  }
+
+  return { doesNotContainQuestionMark: true };
 }
